@@ -9,11 +9,11 @@ const notoSans = Noto_Sans_KR({
 });
 
 export const metadata: Metadata = {
-  title: "성남시 생활 정보 | 행사·혜택·지원금 안내",
-  description: "성남시 주민을 위한 지역 행사, 축제, 지원금, 혜택 정보를 매일 업데이트합니다.",
+  title: "남양주시 생활 정보 | 행사·혜택·지원금 안내",
+  description: "남양주시 주민을 위한 지역 행사, 축제, 지원금, 혜택 정보를 매일 업데이트합니다.",
   openGraph: {
-    title: "성남시 생활 정보 | 행사·혜택·지원금 안내",
-    description: "성남시 주민을 위한 지역 행사, 축제, 지원금, 혜택 정보를 매일 업데이트합니다.",
+    title: "남양주시 생활 정보 | 행사·혜택·지원금 안내",
+    description: "남양주시 주민을 위한 지역 행사, 축제, 지원금, 혜택 정보를 매일 업데이트합니다.",
     type: "website",
     locale: "ko_KR",
   },
@@ -30,9 +30,9 @@ export default function RootLayout({
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "성남시 생활 정보",
+    name: "남양주시 생활 정보",
     url: siteUrl,
-    description: "성남시 주민을 위한 지역 행사, 축제, 지원금, 혜택 정보",
+    description: "남양주시 주민을 위한 지역 행사, 축제, 지원금, 혜택 정보",
     inLanguage: "ko-KR",
   };
 

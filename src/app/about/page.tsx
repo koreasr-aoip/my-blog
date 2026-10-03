@@ -57,7 +57,7 @@ export default function AboutPage() {
               <span>사이트 운영 목적</span>
             </h2>
             <p className="text-slate-700 leading-relaxed text-sm sm:text-base">
-              <strong>우리 동네 소식통</strong>은 성남시와 경기도 지역 주민들을 위해 복잡하고 흩어져 있는 생활 밀착형 정보를 한곳에 모아 알기 쉽게 제공하는 비영리 정보 공유 포털입니다.
+              <strong>우리 동네 소식통</strong>은 남양주시와 경기도 지역 주민들을 위해 복잡하고 흩어져 있는 생활 밀착형 정보를 한곳에 모아 알기 쉽게 제공하는 비영리 정보 공유 포털입니다.
             </p>
             <p className="text-slate-600 leading-relaxed text-sm sm:text-base">
               매달 열리는 다채로운 지역 문화 축제와 행사 소식은 물론, 놓치기 아쉬운 청년 월세 지원금, 출산 지원금 등 실질적인 혜택을 시민 누구나 쉽고 빠르게 찾아볼 수 있도록 돕는 것을 목표로 합니다.
@@ -116,7 +116,7 @@ export default function AboutPage() {
       {/* 푸터 */}
       <footer className="mt-16 bg-white border-t border-slate-200 py-8 text-xs text-slate-500 text-center">
         <p className="font-semibold text-slate-700">우리 동네 소식통</p>
-        <p className="mt-1">데이터 출처: 공공데이터포털(data.go.kr) | 성남시</p>
+        <p className="mt-1">데이터 출처: 공공데이터포털(data.go.kr) | 남양주시</p>
       </footer>
     </div>
   );

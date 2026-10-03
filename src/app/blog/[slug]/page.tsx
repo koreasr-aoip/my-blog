@@ -71,12 +71,12 @@ export default async function BlogPostPage({ params }: PageProps) {
     description: post.summary,
     author: {
       "@type": "Organization",
-      name: "성남시 생활 정보",
+      name: "남양주시 생활 정보",
       url: siteUrl,
     },
     publisher: {
       "@type": "Organization",
-      name: "성남시 생활 정보",
+      name: "남양주시 생활 정보",
       url: siteUrl,
     },
   };
@@ -226,7 +226,7 @@ export default async function BlogPostPage({ params }: PageProps) {
       {/* 푸터 */}
       <footer className="mt-16 bg-white border-t border-slate-200 py-8 text-xs text-slate-500 text-center">
         <p className="font-semibold text-slate-700">우리 동네 소식통 블로그</p>
-        <p className="mt-1">성남시 생활정보 • 축제 & 지원금 소식</p>
+        <p className="mt-1">남양주시 생활정보 • 축제 & 지원금 소식</p>
       </footer>
     </div>
   );

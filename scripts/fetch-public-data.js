@@ -54,7 +54,7 @@ async function main() {
     process.exit(0);
   }
 
-  // 필터링 순서: 성남 -> 경기 -> 전체
+  // 필터링 순서: 남양주 -> 경기 -> 전체
   const checkField = (item, keyword) => {
     const text = `${item.서비스명 || ""} ${item.서비스목적요약 || ""} ${
       item.지원대상 || ""
@@ -62,7 +62,7 @@ async function main() {
     return text.includes(keyword);
   };
 
-  let filtered = apiItems.filter((item) => checkField(item, "성남"));
+  let filtered = apiItems.filter((item) => checkField(item, "남양주"));
   if (filtered.length === 0) {
     filtered = apiItems.filter((item) => checkField(item, "경기"));
   }

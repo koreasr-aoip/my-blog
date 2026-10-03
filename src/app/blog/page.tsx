@@ -3,7 +3,7 @@ import { getAllPosts } from "@/lib/posts";
 
 export const metadata = {
   title: "블로그 소식 | 우리 동네 소식통",
-  description: "성남시의 최신 생활 정보, 축제 후기 및 알짜 지원금 꿀팁을 전해드립니다.",
+  description: "남양주시의 최신 생활 정보, 축제 후기 및 알짜 지원금 꿀팁을 전해드립니다.",
 };
 
 export default function BlogListPage() {
@@ -137,7 +137,7 @@ export default function BlogListPage() {
       {/* 푸터 */}
       <footer className="mt-16 bg-white border-t border-slate-200 py-8 text-xs text-slate-500 text-center">
         <p className="font-semibold text-slate-700">우리 동네 소식통 블로그</p>
-        <p className="mt-1">성남시 생활정보 • 축제 & 지원금 소식</p>
+        <p className="mt-1">남양주시 생활정보 • 축제 & 지원금 소식</p>
       </footer>
     </div>
   );

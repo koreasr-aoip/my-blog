@@ -56,13 +56,13 @@ export default function Home() {
           </nav>
 
           <span className="inline-block px-3 py-1 bg-white/20 backdrop-blur-xs rounded-full text-xs sm:text-sm font-semibold tracking-wide mb-3">
-            성남시 생활 밀착 정보
+            남양주시 생활 밀착 정보
           </span>
           <h1 className="text-3xl sm:text-5xl font-black tracking-tight drop-shadow-xs">
             우리 동네 소식통
           </h1>
           <p className="mt-3 sm:mt-4 text-sky-100 text-sm sm:text-lg max-w-xl mx-auto leading-relaxed">
-            성남시민이 꼭 챙겨야 할 알짜배기 축제 소식과 지원금 혜택을 전해드립니다.
+            남양주시민이 꼭 챙겨야 할 알짜배기 축제 소식과 지원금 혜택을 전해드립니다.
           </p>
 
           {/* 간편 이동 버튼 */}
@@ -220,7 +220,7 @@ export default function Home() {
                 description: benefit.summary,
                 provider: {
                   "@type": "GovernmentOrganization",
-                  name: benefit.location || "성남시",
+                  name: benefit.location || "남양주시",
                 },
               };
 
@@ -296,7 +296,7 @@ export default function Home() {
       <footer className="mt-16 bg-white border-t border-slate-200 py-8 text-xs text-slate-500">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center space-y-2">
           <p className="font-bold text-slate-700">
-            우리 동네 소식통 • 성남시 생활 정보 포털
+            우리 동네 소식통 • 남양주시 생활 정보 포털
           </p>
           <p>데이터 출처: 공공데이터포털(data.go.kr) | 마지막 업데이트: {localData.updatedAt}</p>
           <p className="text-slate-400">본 사이트의 정보는 공공누리 제1유형에 따라 배포됩니다.</p>
