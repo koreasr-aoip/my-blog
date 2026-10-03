@@ -5,6 +5,7 @@ import remarkGfm from "remark-gfm";
 import { getAllPosts, getPostBySlug } from "@/lib/posts";
 import localData from "../../../../public/data/local-info.json";
 import AdBanner from "@/components/AdBanner";
+import CoupangBanner from "@/components/CoupangBanner";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -167,6 +168,9 @@ export default async function BlogPostPage({ params }: PageProps) {
 
             {/* 본문 하단 AdSense 광고 */}
             <AdBanner className="my-8" />
+
+            {/* 쿠팡 파트너스 배너 */}
+            <CoupangBanner className="my-6" />
 
             {/* 1. AI 생성 정보 공개 & 2. 출처 명시 강화 (E-E-A-T 최적화) */}
             <section className="mt-12 p-5 sm:p-6 rounded-2xl bg-slate-50 border border-slate-200/90 space-y-3.5 text-xs sm:text-sm text-slate-600">
