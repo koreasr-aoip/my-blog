@@ -60,7 +60,12 @@ jobs:
           NEXT_PUBLIC_GA_ID: ${{ secrets.NEXT_PUBLIC_GA_ID || '' }}
 
       - name: Deploy to Cloudflare Pages
-        run: npx wrangler pages deploy out --project-name=my-local-info
+        if: ${{ secrets.CLOUDFLARE_API_TOKEN != '' }}
+        run: npx wrangler pages deploy out --project-name=my-blog
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
+      - name: Notice
+        if: ${{ secrets.CLOUDFLARE_API_TOKEN == '' }}
+        run: echo "Cloudflare Pages가 깃허브와 직접 연결되어 자동으로 배포를 처리합니다."
