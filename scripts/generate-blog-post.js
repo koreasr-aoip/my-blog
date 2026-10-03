@@ -57,7 +57,7 @@ async function main() {
 
   // [2단계] Gemini AI로 블로그 글 생성
   const today = new Date().toISOString().split("T")[0];
-  const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${geminiKey}`;
+  const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=${geminiKey}`;
 
   const prompt = `아래 공공서비스 정보를 바탕으로 블로그 글을 작성해줘.
 정보: ${JSON.stringify(latestItem, null, 2)}
