@@ -34,7 +34,23 @@ export default function Home() {
     <div className="min-h-screen bg-[#F7F9FA] text-[#222222]">
       {/* 1. 맨 위 큰 배너: 하늘색 배경에 "우리 동네 소식통" 큰 글씨 */}
       <header className="bg-sky-500 text-white shadow-sm">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12 sm:py-16 text-center">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 pt-4 pb-12 sm:pb-16 text-center">
+          {/* 상단 네비게이션 바 */}
+          <nav className="flex items-center justify-between pb-6 mb-8 border-b border-sky-400/50 text-sm">
+            <Link href="/" className="flex items-center gap-1.5 font-bold hover:text-sky-100 transition-colors">
+              <span>🏙️</span>
+              <span className="font-extrabold tracking-tight">우리 동네 소식통</span>
+            </Link>
+            <div className="flex items-center gap-2 font-semibold">
+              <Link href="/" className="px-3 py-1 rounded-lg bg-white/20 text-white">
+                홈
+              </Link>
+              <Link href="/blog" className="px-3 py-1 rounded-lg bg-white text-sky-600 hover:bg-sky-50 shadow-xs transition-colors">
+                📝 블로그
+              </Link>
+            </div>
+          </nav>
+
           <span className="inline-block px-3 py-1 bg-white/20 backdrop-blur-xs rounded-full text-xs sm:text-sm font-semibold tracking-wide mb-3">
             성남시 생활 밀착 정보
           </span>
@@ -89,7 +105,7 @@ export default function Home() {
                 >
                   {/* 왼쪽: 날짜(큰 숫자) 카드 영역 */}
                   <Link
-                    href={`/info/${event.id}`}
+                    href="/blog"
                     className="sm:w-28 shrink-0 bg-sky-50 hover:bg-sky-100 border border-sky-100 rounded-lg p-3 flex sm:flex-col items-center justify-between sm:justify-center text-center transition-colors group"
                   >
                     <span className="text-xs font-bold text-sky-700 sm:mb-1">
@@ -118,7 +134,7 @@ export default function Home() {
                           {event.category}
                         </span>
                         <Link
-                          href={`/info/${event.id}`}
+                          href="/blog"
                           className="text-lg sm:text-xl font-bold text-slate-900 hover:text-sky-600 transition-colors"
                         >
                           {event.title}
@@ -143,10 +159,10 @@ export default function Home() {
                       </div>
 
                       <Link
-                        href={`/info/${event.id}`}
+                        href="/blog"
                         className="self-end sm:self-auto inline-flex items-center gap-1 px-3.5 py-1.5 bg-sky-50 hover:bg-sky-500 text-sky-700 hover:text-white font-bold rounded-lg transition-colors"
                       >
-                        상세보기 →
+                        자세히 보기 →
                       </Link>
                     </div>
                   </div>
@@ -187,7 +203,7 @@ export default function Home() {
 
                   {/* 제목 */}
                   <Link
-                    href={`/info/${benefit.id}`}
+                    href="/blog"
                     className="block text-lg font-bold text-slate-900 hover:text-emerald-600 transition-colors mb-3"
                   >
                     {benefit.title}
@@ -195,7 +211,7 @@ export default function Home() {
 
                   {/* 대상자 강조 박스 */}
                   <Link
-                    href={`/info/${benefit.id}`}
+                    href="/blog"
                     className="block p-3 bg-emerald-50 hover:bg-emerald-100/80 border border-emerald-200 rounded-lg mb-3 transition-colors"
                   >
                     <span className="block text-[11px] font-black text-emerald-800 tracking-wider">
@@ -217,10 +233,10 @@ export default function Home() {
                     <span className="font-semibold text-slate-700">접수:</span> {benefit.location}
                   </div>
                   <Link
-                    href={`/info/${benefit.id}`}
+                    href="/blog"
                     className="inline-flex items-center gap-1 px-3.5 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-lg shadow-xs transition-colors"
                   >
-                    상세보기 & 신청 →
+                    자세히 보기 →
                   </Link>
                 </div>
               </article>
