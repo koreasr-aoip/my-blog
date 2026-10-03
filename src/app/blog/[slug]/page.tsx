@@ -224,7 +224,16 @@ export default async function BlogPostPage({ params }: PageProps) {
       </main>
 
       {/* 푸터 */}
-      <footer className="mt-16 bg-white border-t border-slate-200 py-8 text-xs text-slate-500 text-center">
+      <footer className="mt-16 bg-white border-t border-slate-200 py-8 text-xs text-slate-500 text-center space-y-2">
+        <div className="flex flex-wrap justify-center items-center gap-3 font-semibold text-slate-600 mb-2">
+          <Link href="/" className="hover:text-sky-600 transition-colors">홈</Link>
+          <span>•</span>
+          <Link href="/blog" className="hover:text-sky-600 transition-colors">블로그</Link>
+          <span>•</span>
+          <Link href="/about" className="hover:text-sky-600 transition-colors">서비스 소개</Link>
+          <span>•</span>
+          <Link href="/privacy" className="hover:text-sky-600 transition-colors text-slate-700 font-bold">개인정보처리방침</Link>
+        </div>
         <p className="font-semibold text-slate-700">우리 동네 소식통 블로그</p>
         <p className="mt-1">남양주시 생활정보 • 축제 & 지원금 소식</p>
       </footer>

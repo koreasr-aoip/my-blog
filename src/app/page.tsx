@@ -295,6 +295,15 @@ export default function Home() {
       {/* 하단 푸터 */}
       <footer className="mt-16 bg-white border-t border-slate-200 py-8 text-xs text-slate-500">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center space-y-2">
+          <div className="flex flex-wrap justify-center items-center gap-3 font-semibold text-slate-600 mb-2">
+            <Link href="/" className="hover:text-sky-600 transition-colors">홈</Link>
+            <span>•</span>
+            <Link href="/blog" className="hover:text-sky-600 transition-colors">블로그</Link>
+            <span>•</span>
+            <Link href="/about" className="hover:text-sky-600 transition-colors">서비스 소개</Link>
+            <span>•</span>
+            <Link href="/privacy" className="hover:text-sky-600 transition-colors text-slate-700 font-bold">개인정보처리방침</Link>
+          </div>
           <p className="font-bold text-slate-700">
             우리 동네 소식통 • 남양주시 생활 정보 포털
           </p>
