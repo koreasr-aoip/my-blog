@@ -1,5 +1,6 @@
 import Link from "next/link";
 import localData from "../../public/data/local-info.json";
+import AdBanner from "@/components/AdBanner";
 
 interface InfoItem {
   id: string;
@@ -47,6 +48,9 @@ export default function Home() {
               </Link>
               <Link href="/blog" className="px-3 py-1 rounded-lg bg-white text-sky-600 hover:bg-sky-50 shadow-xs transition-colors">
                 📝 블로그
+              </Link>
+              <Link href="/about" className="px-3 py-1 rounded-lg bg-white/20 hover:bg-white/30 text-white transition-colors">
+                소개
               </Link>
             </div>
           </nav>
@@ -98,11 +102,31 @@ export default function Home() {
               const start = parseDate(event.startDate);
               const end = parseDate(event.endDate);
 
+              const eventSchema = {
+                "@context": "https://schema.org",
+                "@type": "Event",
+                name: event.title,
+                startDate: event.startDate,
+                endDate: event.endDate,
+                location: {
+                  "@type": "Place",
+                  name: event.location,
+                },
+                description: event.summary,
+              };
+
               return (
                 <article
                   key={event.id}
                   className="bg-white rounded-xl border border-slate-200 shadow-xs hover:shadow-md hover:border-sky-300 transition-all p-4 sm:p-5 flex flex-col sm:flex-row gap-4 sm:gap-6 items-stretch"
                 >
+                  {/* Event 구조화 데이터 (JSON-LD) */}
+                  <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                      __html: JSON.stringify(eventSchema),
+                    }}
+                  />
                   {/* 왼쪽: 날짜(큰 숫자) 카드 영역 */}
                   <Link
                     href="/blog"
@@ -172,6 +196,9 @@ export default function Home() {
           </div>
         </section>
 
+        {/* 행사와 혜택 섹션 사이 AdSense 광고 */}
+        <AdBanner className="my-6" />
+
         {/* 지원금 & 혜택 섹션 */}
         <section id="benefits-section" className="scroll-mt-6">
           <div className="flex items-center justify-between pb-3 mb-6 border-b-2 border-emerald-600">
@@ -185,13 +212,32 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-            {benefits.map((benefit) => (
-              <article
-                key={benefit.id}
-                className="bg-white rounded-xl border-2 border-emerald-500 shadow-xs hover:shadow-md transition-shadow p-5 flex flex-col justify-between"
-              >
-                <div>
-                  {/* 상단 뱃지 & 신청 기간 */}
+            {benefits.map((benefit) => {
+              const benefitSchema = {
+                "@context": "https://schema.org",
+                "@type": "GovernmentService",
+                name: benefit.title,
+                description: benefit.summary,
+                provider: {
+                  "@type": "GovernmentOrganization",
+                  name: benefit.location || "성남시",
+                },
+              };
+
+              return (
+                <article
+                  key={benefit.id}
+                  className="bg-white rounded-xl border-2 border-emerald-500 shadow-xs hover:shadow-md transition-shadow p-5 flex flex-col justify-between"
+                >
+                  {/* GovernmentService 구조화 데이터 (JSON-LD) */}
+                  <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                      __html: JSON.stringify(benefitSchema),
+                    }}
+                  />
+                  <div>
+                    {/* 상단 뱃지 & 신청 기간 */}
                   <div className="flex items-center justify-between gap-2 mb-2">
                     <span className="text-xs font-bold text-emerald-700 bg-emerald-100 px-2.5 py-0.5 rounded-full">
                       {benefit.category}
@@ -240,7 +286,8 @@ export default function Home() {
                   </Link>
                 </div>
               </article>
-            ))}
+            );
+          })}
           </div>
         </section>
       </main>

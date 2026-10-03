@@ -9,8 +9,14 @@ const notoSans = Noto_Sans_KR({
 });
 
 export const metadata: Metadata = {
-  title: "성남시 생활 정보 | 축제·행사 & 복지·지원금 소식",
-  description: "성남시의 최신 문화 행사, 축제 일정 및 놓치기 쉬운 청년·출산 지원금과 혜택 정보를 한눈에 확인하세요.",
+  title: "성남시 생활 정보 | 행사·혜택·지원금 안내",
+  description: "성남시 주민을 위한 지역 행사, 축제, 지원금, 혜택 정보를 매일 업데이트합니다.",
+  openGraph: {
+    title: "성남시 생활 정보 | 행사·혜택·지원금 안내",
+    description: "성남시 주민을 위한 지역 행사, 축제, 지원금, 혜택 정보를 매일 업데이트합니다.",
+    type: "website",
+    locale: "ko_KR",
+  },
 };
 
 export default function RootLayout({
@@ -18,9 +24,70 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const siteUrl =
+    process.env.NEXT_PUBLIC_SITE_URL || "https://my-blog-80o.pages.dev";
+
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "성남시 생활 정보",
+    url: siteUrl,
+    description: "성남시 주민을 위한 지역 행사, 축제, 지원금, 혜택 정보",
+    inLanguage: "ko-KR",
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "홈",
+        item: siteUrl,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "블로그",
+        item: `${siteUrl}/blog`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: "글 제목",
+        item: `${siteUrl}/blog`,
+      },
+    ],
+  };
+
+  const adsenseId = process.env.NEXT_PUBLIC_ADSENSE_ID;
+  const isAdSenseActive = Boolean(
+    adsenseId && adsenseId !== "나중에_입력" && adsenseId.trim() !== ""
+  );
+
   return (
     <html lang="ko" className="scroll-smooth">
-      <body className={`${notoSans.className} min-h-screen bg-slate-50 text-slate-900 antialiased selection:bg-blue-500 selection:text-white`}>
+      <head>
+        {isAdSenseActive && (
+          <script
+            async
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseId}`}
+            crossOrigin="anonymous"
+          />
+        )}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        />
+      </head>
+      <body
+        className={`${notoSans.className} min-h-screen bg-slate-50 text-slate-900 antialiased selection:bg-blue-500 selection:text-white`}
+      >
         {children}
       </body>
     </html>

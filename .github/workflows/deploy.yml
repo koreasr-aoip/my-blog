@@ -55,6 +55,8 @@ jobs:
 
       - name: Build site
         run: npm run build
+        env:
+          NEXT_PUBLIC_ADSENSE_ID: ${{ secrets.NEXT_PUBLIC_ADSENSE_ID || 'ca-pub-본인아이디입력' }}
 
       - name: Deploy to Cloudflare Pages
         run: npx wrangler pages deploy out --project-name=my-local-info

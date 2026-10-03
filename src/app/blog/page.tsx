@@ -27,18 +27,24 @@ export default function BlogListPage() {
             </h1>
           </div>
 
-          <nav className="flex items-center gap-3 text-sm font-semibold">
+          <nav className="flex items-center gap-2 text-sm font-semibold">
             <Link
               href="/"
               className="px-3.5 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white transition-all"
             >
-              홈으로
+              홈
             </Link>
             <Link
               href="/blog"
               className="px-3.5 py-1.5 rounded-lg bg-white text-sky-600 shadow-xs"
             >
               블로그
+            </Link>
+            <Link
+              href="/about"
+              className="px-3.5 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white transition-all"
+            >
+              소개
             </Link>
           </nav>
         </div>
