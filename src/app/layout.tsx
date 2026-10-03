@@ -66,9 +66,32 @@ export default function RootLayout({
     adsenseId && adsenseId !== "나중에_입력" && adsenseId.trim() !== ""
   );
 
+  const gaId = process.env.NEXT_PUBLIC_GA_ID;
+  const isGaActive = Boolean(
+    gaId && gaId !== "나중에_입력" && gaId.trim() !== ""
+  );
+
   return (
     <html lang="ko" className="scroll-smooth">
       <head>
+        {isGaActive && (
+          <>
+            <script
+              async
+              src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+            />
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', '${gaId}');
+                `,
+              }}
+            />
+          </>
+        )}
         {isAdSenseActive && (
           <script
             async
