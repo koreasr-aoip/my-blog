@@ -118,9 +118,8 @@ export default function Home() {
               <br />
               한 권의{" "}
               <span className="inline-block px-3 py-0.5 rounded-full bg-[#ffb110]/25 text-[#111111] border border-[#ffb110]/40">
-                생활 수첩
+                생활 수첩으로..
               </span>
-              으로..
             </h1>
 
             {/* 서브 카피 */}
