@@ -6,9 +6,9 @@
     "node": ">=20.0.0 <=22.x"
   },
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 1117",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 1117",
     "lint": "eslint"
   },
   "dependencies": {
