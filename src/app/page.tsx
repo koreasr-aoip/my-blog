@@ -120,7 +120,6 @@ export default function Home() {
               <span className="inline-block px-3 py-0.5 rounded-full bg-[#ffb110]/25 text-[#111111] border border-[#ffb110]/40">
                 생활 수첩
               </span>
-              에 담았습니다.
             </h1>
 
             {/* 서브 카피 */}
