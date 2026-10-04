@@ -3,122 +3,125 @@
 
 :root {
   /* Colors */
-  --color-paper-white: #fafafa;
+  --color-notion-blue: #0075de;
+  --color-paper-warmth: #f6f5f4;
   --color-pure-white: #ffffff;
-  --color-hairline: #ebebeb;
-  --color-ash: #c9c9c9;
-  --color-smoke: #a8a8a8;
-  --color-graphite: #8f8f8f;
-  --color-slate: #7d7d7d;
-  --color-stone: #666666;
-  --color-charcoal: #4d4d4d;
-  --color-obsidian: #171717;
-  --color-carbon: #000000;
-  --color-terminal-green: #297a3a;
-  --color-spectrum-gradient: #ff1744;
-  --gradient-spectrum-gradient: linear-gradient(90deg, rgb(0, 255, 149) 0%, rgb(255, 208, 0) 25%, rgb(255, 23, 68) 50%, rgb(149, 0, 255) 75%, rgb(0, 229, 255) 100%);
-  --color-solar-edge: #ffdc30;
-  --gradient-solar-edge: linear-gradient(90deg, rgb(255, 220, 48) 0%, rgb(56, 162, 255) 100%);
-
-  /* Typography */
-  --font-geist-sans: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-geist-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --color-ink-black: #000000;
+  --color-charcoal: #111111;
+  --color-stone: #757575;
+  --color-graphite: #615d59;
+  --color-slate: #696969;
+  --color-sky-tint: #e6f3fe;
+  --color-marigold: #ffb110;
+  --color-coral: #f64932;
+  --color-saffron: #e89d01;
+  --color-vermillion: #e32d14;
+  --color-mocha: #b18164;
+  --color-signal-blue: #097fe8;
+  --color-sky-wash: #62aef0;
+  --color-midnight-ink: #02093a;
 
   /* Surfaces */
-  --surface-page-canvas: #fafafa;
+  --surface-page-canvas: #f6f5f4;
   --surface-card-surface: #ffffff;
-  --surface-inverted-surface: #171717;
+  --surface-accent-card-surface: #ffb110;
+  --surface-dark-card-surface: #02093a;
 
-  /* Shadows */
-  --shadow-subtle: rgba(0, 0, 0, 0.08) 0px 0px 0px 1px, rgb(250, 250, 250) 0px 0px 0px 1px;
-  --shadow-subtle-2: rgb(235, 235, 235) 0px 0px 0px 1px;
+  /* Spacing */
+  --spacing-4: 4px;
+  --spacing-8: 8px;
+  --spacing-12: 12px;
+  --spacing-16: 16px;
+  --spacing-20: 20px;
+  --spacing-24: 24px;
+  --spacing-32: 32px;
+  --spacing-80: 80px;
+
+  /* Border Radius */
+  --radius-cards: 12px;
+  --radius-buttons: 8px;
+  --radius-pills: 9999px;
 }
 
 @theme {
-  --color-paper-white: #fafafa;
+  --color-notion-blue: #0075de;
+  --color-paper-warmth: #f6f5f4;
   --color-pure-white: #ffffff;
-  --color-hairline: #ebebeb;
-  --color-ash: #c9c9c9;
-  --color-smoke: #a8a8a8;
-  --color-graphite: #8f8f8f;
-  --color-slate: #7d7d7d;
-  --color-stone: #666666;
-  --color-charcoal: #4d4d4d;
-  --color-obsidian: #171717;
-  --color-carbon: #000000;
-  --color-terminal-green: #297a3a;
+  --color-ink-black: #000000;
+  --color-charcoal: #111111;
+  --color-stone: #757575;
+  --color-graphite: #615d59;
+  --color-slate: #696969;
+  --color-sky-tint: #e6f3fe;
+  --color-marigold: #ffb110;
+  --color-coral: #f64932;
+  --color-sky-wash: #62aef0;
+  --color-midnight-ink: #02093a;
 
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-
-  --radius-sm: 2px;
-  --radius-md: 6px;
-  --radius-full: 9999px;
+  --radius-cards: 12px;
+  --radius-buttons: 8px;
+  --radius-pills: 9999px;
 }
 
 body {
-  background-color: #fafafa;
-  color: #171717;
-  font-family: var(--font-geist-sans);
+  background-color: #f6f5f4;
+  color: #111111;
   -webkit-font-smoothing: antialiased;
 }
 
-/* Vercel Style Utility Classes */
-.vercel-card {
+/* Notion Style Utility Classes */
+.notion-card {
   background-color: #ffffff;
-  border-radius: 6px;
-  border: 1px solid #ebebeb;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.04);
-  transition: all 0.15s ease;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
-.vercel-card:hover {
-  border-color: #c9c9c9;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+.notion-card:hover {
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
 }
 
-.vercel-btn-primary {
+.notion-btn-primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: #171717;
+  background-color: #0075de;
   color: #ffffff;
-  border-radius: 6px;
+  border-radius: 8px;
   font-size: 14px;
-  font-weight: 400;
-  padding: 8px 16px;
-  transition: background-color 0.15s ease, opacity 0.15s ease;
+  font-weight: 500;
+  padding: 6px 16px;
+  transition: background-color 0.2s ease;
 }
 
-.vercel-btn-primary:hover {
-  background-color: #000000;
+.notion-btn-primary:hover {
+  background-color: #0062bd;
 }
 
-.vercel-btn-ghost {
+.notion-btn-ghost {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: transparent;
-  color: #4d4d4d;
-  border: 1px solid #ebebeb;
-  border-radius: 6px;
+  background-color: #e6f3fe;
+  color: #0075de;
+  border-radius: 8px;
   font-size: 14px;
-  font-weight: 400;
-  padding: 8px 16px;
-  transition: all 0.15s ease;
+  font-weight: 500;
+  padding: 6px 16px;
+  transition: all 0.2s ease;
 }
 
-.vercel-btn-ghost:hover {
-  color: #171717;
-  border-color: #171717;
-  background-color: #ffffff;
+.notion-btn-ghost:hover {
+  background-color: #d8ecfd;
 }
 
-.vercel-eyebrow {
-  font-family: var(--font-geist-mono);
-  font-size: 11px;
-  font-weight: 400;
-  letter-spacing: 0.071em;
-  text-transform: uppercase;
-  color: #666666;
+.notion-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border-radius: 9999px;
+  padding: 3px 10px;
+  font-size: 12px;
+  font-weight: 500;
 }

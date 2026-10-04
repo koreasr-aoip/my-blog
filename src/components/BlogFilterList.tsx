@@ -21,34 +21,34 @@ export default function BlogFilterList({ posts }: BlogFilterListProps) {
 
   return (
     <div className="space-y-6">
-      {/* 카테고리 필터 탭 (Vercel Style) */}
-      <div className="flex items-center gap-1.5 border-b border-[#ebebeb] pb-3 overflow-x-auto">
+      {/* 카테고리 필터 탭 (Notion Style Pills) */}
+      <div className="flex items-center gap-2 border-b border-black/[0.08] pb-3.5 overflow-x-auto">
         <button
           onClick={() => setSelectedCategory("전체")}
-          className={`px-3 py-1.5 rounded-[6px] text-xs font-mono transition-all ${
+          className={`px-3.5 py-1.5 rounded-full text-xs font-medium transition-all ${
             selectedCategory === "전체"
-              ? "bg-[#171717] text-white"
-              : "bg-transparent text-[#666666] hover:text-[#171717] hover:bg-[#ffffff] border border-[#ebebeb]"
+              ? "bg-[#0075de] text-white shadow-2xs"
+              : "bg-white text-[#615d59] hover:bg-[#eeebe8] border border-black/[0.08]"
           }`}
         >
-          ALL ({posts.length})
+          전체 보기 ({posts.length})
         </button>
         <button
           onClick={() => setSelectedCategory("행사")}
-          className={`px-3 py-1.5 rounded-[6px] text-xs font-mono transition-all ${
+          className={`px-3.5 py-1.5 rounded-full text-xs font-medium transition-all ${
             selectedCategory === "행사"
-              ? "bg-[#171717] text-white"
-              : "bg-transparent text-[#666666] hover:text-[#171717] hover:bg-[#ffffff] border border-[#ebebeb]"
+              ? "bg-[#0075de] text-white shadow-2xs"
+              : "bg-white text-[#615d59] hover:bg-[#eeebe8] border border-black/[0.08]"
           }`}
         >
-          🎪 행사·축제 ({eventCount})
+          🎪 축제·행사 ({eventCount})
         </button>
         <button
           onClick={() => setSelectedCategory("혜택")}
-          className={`px-3 py-1.5 rounded-[6px] text-xs font-mono transition-all ${
+          className={`px-3.5 py-1.5 rounded-full text-xs font-medium transition-all ${
             selectedCategory === "혜택"
-              ? "bg-[#171717] text-white"
-              : "bg-transparent text-[#666666] hover:text-[#171717] hover:bg-[#ffffff] border border-[#ebebeb]"
+              ? "bg-[#0075de] text-white shadow-2xs"
+              : "bg-white text-[#615d59] hover:bg-[#eeebe8] border border-black/[0.08]"
           }`}
         >
           🎁 지원금·혜택 ({benefitCount})
@@ -57,47 +57,47 @@ export default function BlogFilterList({ posts }: BlogFilterListProps) {
 
       {/* 필터링된 포스트 목록 */}
       {filteredPosts.length === 0 ? (
-        <div className="bg-[#ffffff] rounded-[6px] border border-[#ebebeb] p-12 text-center space-y-3">
-          <span className="font-mono text-xs text-[#8f8f8f]">▲ NO MATCHING POSTS</span>
-          <p className="text-xs sm:text-sm text-[#666666]">
+        <div className="bg-white rounded-[12px] border border-black/[0.08] p-12 text-center space-y-3">
+          <span className="text-3xl block">📝</span>
+          <p className="text-sm text-[#757575]">
             해당 카테고리의 글이 없습니다.
           </p>
         </div>
       ) : (
-        <div className="space-y-3">
+        <div className="space-y-3.5">
           {filteredPosts.map((post) => (
             <article
               key={post.slug}
-              className="bg-[#ffffff] rounded-[6px] border border-[#ebebeb] p-5 sm:p-6 transition-all hover:border-[#c9c9c9] hover:shadow-[0_2px_12px_rgba(0,0,0,0.04)] flex flex-col justify-between"
+              className="bg-white rounded-[12px] border border-black/[0.08] p-5 sm:p-6 transition-all hover:border-black/20 hover:shadow-xs flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between gap-2 mb-2">
-                  <span className="font-mono text-[10px] tracking-wider uppercase text-[#666666] bg-[#fafafa] border border-[#ebebeb] px-1.5 py-0.5 rounded-[4px]">
+                  <span className="text-xs font-semibold text-[#0075de] bg-[#e6f3fe] px-2 py-0.5 rounded-full">
                     {post.category}
                   </span>
-                  <time className="font-mono text-[11px] text-[#8f8f8f]">
+                  <time className="text-xs text-[#757575]">
                     {post.date}
                   </time>
                 </div>
 
                 <Link
                   href={`/blog/${post.slug}`}
-                  className="block text-base sm:text-lg font-medium text-[#171717] hover:underline underline-offset-4 tracking-tight mb-2"
+                  className="block text-base sm:text-lg font-bold text-[#111111] hover:text-[#0075de] transition-colors tracking-tight mb-2"
                 >
                   {post.title}
                 </Link>
 
-                <p className="text-xs sm:text-sm text-[#4d4d4d] line-clamp-2 leading-relaxed mb-4">
+                <p className="text-xs sm:text-sm text-[#615d59] line-clamp-2 leading-relaxed mb-4">
                   {post.summary}
                 </p>
               </div>
 
-              <div className="pt-3 border-t border-[#ebebeb] flex flex-wrap items-center justify-between gap-2 text-xs">
-                <div className="flex flex-wrap items-center gap-1.5 font-mono text-[11px] text-[#8f8f8f]">
+              <div className="pt-3 border-t border-black/[0.06] flex flex-wrap items-center justify-between gap-2 text-xs">
+                <div className="flex flex-wrap items-center gap-1.5 text-xs text-[#757575]">
                   {post.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-1.5 py-0.5 bg-[#fafafa] border border-[#ebebeb] text-[#666666] rounded-[4px]"
+                      className="px-2 py-0.5 bg-[#f6f5f4] border border-black/[0.06] text-[#615d59] rounded-full"
                     >
                       #{tag}
                     </span>
@@ -106,9 +106,9 @@ export default function BlogFilterList({ posts }: BlogFilterListProps) {
 
                 <Link
                   href={`/blog/${post.slug}`}
-                  className="inline-flex items-center gap-1 text-xs font-normal text-[#171717] hover:underline underline-offset-4"
+                  className="inline-flex items-center gap-1 text-xs font-medium text-[#0075de] hover:underline"
                 >
-                  본문 읽기 →
+                  글 읽기 →
                 </Link>
               </div>
             </article>
