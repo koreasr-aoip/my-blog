@@ -114,12 +114,13 @@ export default function Home() {
 
             {/* 메인 헤드라인 (하이라이트 필 포함) */}
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#111111] leading-[1.15]">
-              오늘 남양주의 모든 소식,
+              남양주시 정보,
               <br />
               한 권의{" "}
               <span className="inline-block px-3 py-0.5 rounded-full bg-[#ffb110]/25 text-[#111111] border border-[#ffb110]/40">
                 생활 수첩
               </span>
+              으로..
             </h1>
 
             {/* 서브 카피 */}
