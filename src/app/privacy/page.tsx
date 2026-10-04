@@ -231,7 +231,7 @@ export default function PrivacyPage() {
             </nav>
           </div>
 
-          <div className="text-[11px] text-[#757575]">
+          <div className="text-[12px] text-[#757575]">
             본 사이트는 구글 애드센스 게시자 운영 정책 및 개인정보 보호 규정을 철저히 준수합니다.
           </div>
         </div>

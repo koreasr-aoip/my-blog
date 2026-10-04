@@ -256,7 +256,7 @@ export default async function BlogPostPage({ params }: PageProps) {
             </nav>
           </div>
 
-          <div className="text-[11px] text-[#757575]">
+          <div className="text-[12px] text-[#757575]">
             남양주시 생활정보 포털 • 공식 축제 및 맞춤형 지원금 소식
           </div>
         </div>

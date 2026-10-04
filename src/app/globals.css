@@ -63,6 +63,10 @@
   --radius-pills: 9999px;
 }
 
+html {
+  font-size: 17px;
+}
+
 body {
   background-color: #f6f5f4;
   color: #111111;
@@ -89,7 +93,7 @@ body {
   background-color: #0075de;
   color: #ffffff;
   border-radius: 8px;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
   padding: 6px 16px;
   transition: background-color 0.2s ease;
@@ -106,7 +110,7 @@ body {
   background-color: #e6f3fe;
   color: #0075de;
   border-radius: 8px;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
   padding: 6px 16px;
   transition: all 0.2s ease;
@@ -122,6 +126,6 @@ body {
   gap: 4px;
   border-radius: 9999px;
   padding: 3px 10px;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
 }

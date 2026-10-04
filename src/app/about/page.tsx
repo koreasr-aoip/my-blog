@@ -141,7 +141,7 @@ export default function AboutPage() {
             </nav>
           </div>
 
-          <div className="text-[11px] text-[#757575]">
+          <div className="text-[12px] text-[#757575]">
             공공데이터 출처: 공공데이터포털(data.go.kr) | 남양주시
           </div>
         </div>

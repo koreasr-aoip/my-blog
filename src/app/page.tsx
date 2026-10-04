@@ -71,7 +71,7 @@ export default function Home() {
             <span className="font-semibold text-base tracking-tight text-[#111111]">
               우리 동네 소식통
             </span>
-            <span className="hidden sm:inline-block text-[11px] px-2 py-0.5 rounded-full bg-black/5 text-[#757575] font-medium">
+            <span className="hidden sm:inline-block text-[12px] px-2 py-0.5 rounded-full bg-black/5 text-[#757575] font-medium">
               남양주
             </span>
           </Link>
@@ -224,7 +224,7 @@ export default function Home() {
                         </span>
                       )}
                     </div>
-                    <span className={`mt-1.5 px-2 py-0.5 rounded-full text-[11px] font-semibold ${dDay.bg}`}>
+                    <span className={`mt-1.5 px-2 py-0.5 rounded-full text-[12px] font-semibold ${dDay.bg}`}>
                       {dDay.label}
                     </span>
                   </Link>
@@ -395,7 +395,7 @@ export default function Home() {
                       href={postUrl}
                       className="block p-3 bg-[#fff9e6] hover:bg-[#fff4d1] border border-[#ffb110]/30 rounded-[8px] mb-3 transition-colors group"
                     >
-                      <div className="text-[11px] font-bold text-[#b18164] flex items-center gap-1 mb-1">
+                      <div className="text-[12px] font-bold text-[#b18164] flex items-center gap-1 mb-1">
                         <span>🎯</span>
                         <span>지원 대상</span>
                       </div>
@@ -468,7 +468,7 @@ export default function Home() {
             </nav>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-[11px] text-[#757575]">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-[12px] text-[#757575]">
             <p>
               데이터 출처: 공공데이터포털(data.go.kr) | 최종 업데이트: {localData.updatedAt}
             </p>
