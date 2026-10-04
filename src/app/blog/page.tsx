@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { getAllPosts } from "@/lib/posts";
+import BlogFilterList from "@/components/BlogFilterList";
 
 export const metadata = {
   title: "블로그 소식 | 우리 동네 소식통",
@@ -57,7 +58,7 @@ export default function BlogListPage() {
             <span className="text-black">▲</span>
             <span>PUBLIC ARCHIVE & INSIGHTS</span>
             <span className="text-[#ebebeb]">/</span>
-            <span className="text-[#297a3a] font-mono">ALL ARTICLES</span>
+            <span className="text-[#297a3a] font-mono">CATEGORIZED DISPATCH</span>
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-normal tracking-[-0.04em] text-[#171717] leading-tight">
@@ -71,90 +72,9 @@ export default function BlogListPage() {
         </div>
       </section>
 
-      {/* 3. 포스트 목록 본문 */}
+      {/* 3. 포스트 목록 본문 (카테고리 필터 탭 적용) */}
       <main className="max-w-5xl mx-auto px-4 sm:px-6 py-12">
-        <div className="flex items-center justify-between pb-3 mb-6 border-b border-[#ebebeb]">
-          <div className="flex items-center gap-2">
-            <span className="text-black text-xs">▲</span>
-            <h2 className="text-lg sm:text-xl font-normal tracking-tight text-[#171717]">
-              발행된 게시글
-            </h2>
-          </div>
-          <span className="font-mono text-[11px] text-[#8f8f8f] uppercase">
-            TOTAL: <strong className="text-[#171717] font-semibold">{posts.length}</strong> POSTS
-          </span>
-        </div>
-
-        {posts.length === 0 ? (
-          <div className="bg-[#ffffff] rounded-[6px] border border-[#ebebeb] p-12 text-center space-y-3">
-            <span className="font-mono text-xs text-[#8f8f8f]">▲ EMPTY ARCHIVE</span>
-            <h3 className="text-base font-medium text-[#171717]">
-              아직 등록된 블로그 글이 없습니다
-            </h3>
-            <p className="text-xs sm:text-sm text-[#666666] max-w-sm mx-auto">
-              매일 새로운 축제 후기와 맞춤형 지원금 정보 글이 자동으로 게시됩니다.
-            </p>
-            <div className="pt-2">
-              <Link
-                href="/"
-                className="inline-flex items-center justify-center bg-[#171717] text-white hover:bg-black px-4 py-2 rounded-[6px] text-xs font-normal transition-colors"
-              >
-                메인 생활정보 보러가기 →
-              </Link>
-            </div>
-          </div>
-        ) : (
-          <div className="space-y-3">
-            {posts.map((post) => (
-              <article
-                key={post.slug}
-                className="bg-[#ffffff] rounded-[6px] border border-[#ebebeb] p-5 sm:p-6 transition-all hover:border-[#c9c9c9] hover:shadow-[0_2px_12px_rgba(0,0,0,0.04)] flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex items-center justify-between gap-2 mb-2">
-                    <span className="font-mono text-[10px] tracking-wider uppercase text-[#666666] bg-[#fafafa] border border-[#ebebeb] px-1.5 py-0.5 rounded-[4px]">
-                      {post.category}
-                    </span>
-                    <time className="font-mono text-[11px] text-[#8f8f8f]">
-                      {post.date}
-                    </time>
-                  </div>
-
-                  <Link
-                    href={`/blog/${post.slug}`}
-                    className="block text-base sm:text-lg font-medium text-[#171717] hover:underline underline-offset-4 tracking-tight mb-2"
-                  >
-                    {post.title}
-                  </Link>
-
-                  <p className="text-xs sm:text-sm text-[#4d4d4d] line-clamp-2 leading-relaxed mb-4">
-                    {post.summary}
-                  </p>
-                </div>
-
-                <div className="pt-3 border-t border-[#ebebeb] flex flex-wrap items-center justify-between gap-2 text-xs">
-                  <div className="flex flex-wrap items-center gap-1.5 font-mono text-[11px] text-[#8f8f8f]">
-                    {post.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-1.5 py-0.5 bg-[#fafafa] border border-[#ebebeb] text-[#666666] rounded-[4px]"
-                      >
-                        #{tag}
-                      </span>
-                    ))}
-                  </div>
-
-                  <Link
-                    href={`/blog/${post.slug}`}
-                    className="inline-flex items-center gap-1 text-xs font-normal text-[#171717] hover:underline underline-offset-4"
-                  >
-                    본문 읽기 →
-                  </Link>
-                </div>
-              </article>
-            ))}
-          </div>
-        )}
+        <BlogFilterList posts={posts} />
       </main>
 
       {/* 4. 푸터 */}

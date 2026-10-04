@@ -4,6 +4,7 @@ import AdBanner from "@/components/AdBanner";
 
 interface InfoItem {
   id: string;
+  slug?: string;
   title: string;
   category: "행사" | "혜택";
   startDate: string;
@@ -50,7 +51,7 @@ export default function Home() {
             </span>
           </Link>
 
-          {/* 중앙/우측 네비게이션 링크 */}
+          {/* 네비게이션 링크 */}
           <nav className="flex items-center gap-1 sm:gap-2">
             <Link
               href="/"
@@ -78,7 +79,7 @@ export default function Home() {
       <section className="border-b border-[#ebebeb] bg-[#fafafa] pt-16 sm:pt-24 pb-16 sm:pb-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="max-w-3xl space-y-6">
-            {/* Eyebrow Label: Geist Mono 11px uppercase */}
+            {/* Eyebrow Label */}
             <div className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.071em] text-[#666666]">
               <span className="text-black">▲</span>
               <span>LOCAL DISPATCH & CITIZEN HUB</span>
@@ -88,20 +89,20 @@ export default function Home() {
               </span>
             </div>
 
-            {/* Main Headline: Geist Sans, weight 450, tight tracking */}
+            {/* Main Headline */}
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-normal tracking-[-0.04em] text-[#171717] leading-[1.08]">
               남양주시민을 위한
               <br />
               <span className="text-[#171717] font-medium">생활 밀착 정보 허브</span>
             </h1>
 
-            {/* Description Body: Geist Sans 16px, #4d4d4d */}
+            {/* Description Body */}
             <p className="text-sm sm:text-base text-[#4d4d4d] leading-relaxed max-w-2xl">
               남양주시의 실시간 공식 축제·문화 행사 일정과 놓치지 말아야 할
               청년·출산 지원금 및 복지 혜택을 매일 가장 정확하게 정리해 전해드립니다.
             </p>
 
-            {/* Action Buttons: Filled Black Button + Ghost Button */}
+            {/* Action Buttons */}
             <div className="pt-2 flex flex-wrap items-center gap-3">
               <a
                 href="#events-section"
@@ -136,7 +137,6 @@ export default function Home() {
       <main className="max-w-5xl mx-auto px-4 sm:px-6 py-16 space-y-20">
         {/* 행사 & 축제 섹션 */}
         <section id="events-section" className="scroll-mt-24 space-y-6">
-          {/* 섹션 헤더 */}
           <div className="flex flex-col sm:flex-row sm:items-baseline justify-between pb-3 border-b border-[#ebebeb] gap-2">
             <div className="flex items-center gap-2.5">
               <span className="text-black text-xs">▲</span>
@@ -149,11 +149,11 @@ export default function Home() {
             </div>
           </div>
 
-          {/* 행사 카드 리스트 (Bordered Card: bg #ffffff, 6px radius, hairline border) */}
           <div className="space-y-3">
             {events.map((event) => {
               const start = parseDate(event.startDate);
               const end = parseDate(event.endDate);
+              const postUrl = event.slug ? `/blog/${event.slug}` : "/blog";
 
               const eventSchema = {
                 "@context": "https://schema.org",
@@ -173,7 +173,6 @@ export default function Home() {
                   key={event.id}
                   className="bg-[#ffffff] rounded-[6px] border border-[#ebebeb] p-5 sm:p-6 transition-all hover:border-[#c9c9c9] hover:shadow-[0_2px_12px_rgba(0,0,0,0.04)] flex flex-col sm:flex-row gap-5 sm:gap-6 items-stretch"
                 >
-                  {/* Event 구조화 데이터 */}
                   <script
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{
@@ -181,16 +180,16 @@ export default function Home() {
                     }}
                   />
 
-                  {/* 좌측: 모노스페이스 날짜 뱃지 패널 */}
+                  {/* 좌측: 모노스페이스 날짜 뱃지 패널 (클릭 시 해당 포스트로 이동) */}
                   <Link
-                    href="/blog"
+                    href={postUrl}
                     className="sm:w-28 shrink-0 bg-[#fafafa] hover:bg-[#f2f2f2] border border-[#ebebeb] rounded-[6px] p-3 flex sm:flex-col items-center justify-between sm:justify-center text-center transition-colors group"
                   >
                     <span className="font-mono text-[11px] font-medium tracking-wider text-[#666666] uppercase">
                       {start.month}월
                     </span>
                     <div className="flex sm:flex-col items-baseline sm:items-center">
-                      <span className="font-mono text-3xl font-normal text-[#171717] leading-tight">
+                      <span className="font-mono text-3xl font-normal text-[#171717] leading-tight group-hover:underline">
                         {start.day}
                       </span>
                       {event.startDate !== event.endDate && (
@@ -212,7 +211,7 @@ export default function Home() {
                           {event.category}
                         </span>
                         <Link
-                          href="/blog"
+                          href={postUrl}
                           className="text-base sm:text-lg font-medium text-[#171717] hover:underline underline-offset-4 tracking-tight"
                         >
                           {event.title}
@@ -237,7 +236,7 @@ export default function Home() {
                       </div>
 
                       <Link
-                        href="/blog"
+                        href={postUrl}
                         className="self-start sm:self-auto inline-flex items-center gap-1 text-xs font-normal text-[#171717] hover:underline underline-offset-4"
                       >
                         자세히 보기 <span aria-hidden="true">→</span>
@@ -257,7 +256,6 @@ export default function Home() {
 
         {/* 지원금 & 복지 혜택 섹션 */}
         <section id="benefits-section" className="scroll-mt-24 space-y-6">
-          {/* 섹션 헤더 */}
           <div className="flex flex-col sm:flex-row sm:items-baseline justify-between pb-3 border-b border-[#ebebeb] gap-2">
             <div className="flex items-center gap-2.5">
               <span className="text-black text-xs">▲</span>
@@ -270,9 +268,10 @@ export default function Home() {
             </div>
           </div>
 
-          {/* 혜택 카드 그리드 (2-Column Layout, Vercel Feature Card) */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {benefits.map((benefit) => {
+              const postUrl = benefit.slug ? `/blog/${benefit.slug}` : "/blog";
+
               const benefitSchema = {
                 "@context": "https://schema.org",
                 "@type": "GovernmentService",
@@ -289,7 +288,6 @@ export default function Home() {
                   key={benefit.id}
                   className="bg-[#ffffff] rounded-[6px] border border-[#ebebeb] p-5 sm:p-6 transition-all hover:border-[#c9c9c9] hover:shadow-[0_2px_12px_rgba(0,0,0,0.04)] flex flex-col justify-between"
                 >
-                  {/* GovernmentService 구조화 데이터 */}
                   <script
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{
@@ -308,23 +306,26 @@ export default function Home() {
                       </span>
                     </div>
 
-                    {/* 제목 */}
+                    {/* 제목 (해당 글 상세 페이지로 이동) */}
                     <Link
-                      href="/blog"
+                      href={postUrl}
                       className="block text-base sm:text-lg font-medium text-[#171717] hover:underline underline-offset-4 tracking-tight mb-3"
                     >
                       {benefit.title}
                     </Link>
 
-                    {/* 대상자 박스: 터미널 서브패널 스타일 */}
-                    <div className="p-3 bg-[#fafafa] border border-[#ebebeb] rounded-[6px] mb-3">
+                    {/* 대상자 박스 */}
+                    <Link
+                      href={postUrl}
+                      className="block p-3 bg-[#fafafa] hover:bg-[#f2f2f2] border border-[#ebebeb] rounded-[6px] mb-3 transition-colors group"
+                    >
                       <div className="font-mono text-[10px] uppercase tracking-wider text-[#666666] mb-1">
                         ELIGIBILITY / 지원 대상
                       </div>
-                      <p className="text-xs sm:text-sm text-[#171717] leading-snug">
+                      <p className="text-xs sm:text-sm text-[#171717] leading-snug group-hover:underline">
                         {benefit.target}
                       </p>
-                    </div>
+                    </Link>
 
                     {/* 상세 요약 */}
                     <p className="text-xs sm:text-sm text-[#4d4d4d] leading-relaxed mb-4">
@@ -339,7 +340,7 @@ export default function Home() {
                       <span className="text-[#171717] font-sans">{benefit.location}</span>
                     </div>
                     <Link
-                      href="/blog"
+                      href={postUrl}
                       className="inline-flex items-center justify-center bg-[#171717] text-white hover:bg-black px-3 py-1.5 rounded-[6px] text-xs font-normal transition-colors"
                     >
                       상세 확인 →
@@ -352,7 +353,7 @@ export default function Home() {
         </section>
       </main>
 
-      {/* 4. 하단 푸터 (Vercel Footer) */}
+      {/* 4. 하단 푸터 */}
       <footer className="mt-20 border-t border-[#ebebeb] bg-[#fafafa] py-12 text-xs text-[#666666]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 space-y-6">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-[#ebebeb] pb-6">
