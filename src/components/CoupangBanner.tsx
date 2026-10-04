@@ -16,12 +16,12 @@ export default function CoupangBanner({ className = "" }: CoupangBannerProps) {
   }
 
   return (
-    <div className={`w-full my-6 p-4 rounded-xl bg-amber-50/70 border border-amber-200 text-center ${className}`}>
-      <div className="flex items-center justify-center gap-1.5 text-xs text-amber-900 font-bold mb-2.5">
-        <span>🛒</span>
-        <span>쿠팡 파트너스 추천 혜택 상품 모음</span>
+    <div className={`w-full my-6 p-4 rounded-[6px] bg-[#fafafa] border border-[#ebebeb] text-center ${className}`}>
+      <div className="flex items-center justify-center gap-1.5 text-xs text-[#171717] font-medium mb-2.5 font-mono">
+        <span>▲</span>
+        <span>PARTNER RECOMMENDATIONS</span>
       </div>
-      <div className="w-full flex justify-center items-center overflow-hidden rounded-lg bg-white p-2 border border-amber-100">
+      <div className="w-full flex justify-center items-center overflow-hidden rounded-[6px] bg-[#ffffff] p-2 border border-[#ebebeb]">
         <iframe
           src={`https://ads-partners.coupang.com/widgets.html?id=${coupangId}&template=carousel&trackingCode=${coupangId}`}
           width="100%"
@@ -33,7 +33,7 @@ export default function CoupangBanner({ className = "" }: CoupangBannerProps) {
           className="max-w-xl mx-auto"
         />
       </div>
-      <p className="mt-2 text-[11px] text-slate-400">
+      <p className="mt-2 text-[11px] text-[#8f8f8f] font-mono">
         이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.
       </p>
     </div>
